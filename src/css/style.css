@@ -106,6 +106,16 @@ textarea {
 }
 /* ALERTS */
 
+/* FOOTER */
+.footer {
+  background-color: #070707;
+  color: #303030;
+  font: 400 0.6em/1.1 "Lato", sans-serif;
+  text-align: center;
+  padding: 5px 10px;
+}
+/* FOOTER */
+
 /* VALIDATIONS */
 .invalid-input {
   display: inline-block;
