@@ -7,7 +7,7 @@ let alert_types = "success info warning error";
 let launch_toast = (data) => {
   toast_img.addClass(data.type);
   toast_icon
-    .attr("src", "/src/img/" + data.type + ".png")
+    .attr("src", "src/img/" + data.type + ".png")
     .attr("alt", data.type)
     .attr("title", data.type);
   toast_desc.html(data.message).removeClass(alert_types).addClass(data.type);
@@ -16,7 +16,7 @@ let launch_toast = (data) => {
     toast.removeClass("show " + alert_types);
     toast_img.removeClass(alert_types);
     toast_icon
-      .attr("src", "/src/img/info.png")
+      .attr("src", "src/img/info.png")
       .attr("alt", "Info")
       .attr("title", "Info");
     toast_desc.html("");
