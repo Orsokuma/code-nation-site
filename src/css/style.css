@@ -1,11 +1,11 @@
 /* MAIN SITE */
 @font-face {
   font-family: bearskin;
-  src: url(/src/fonts/bearskin.otf);
+  src: url(../fonts/bearskin.otf);
 }
 @font-face {
   font-family: bearbutter;
-  src: url(/src/fonts/bear-butter.otf);
+  src: url(../fonts/bear-butter.otf);
 }
 html,
 body {
@@ -17,7 +17,7 @@ body {
   scroll-behavior: smooth;
 }
 .parallax {
-  background-image: url("/src/img/bg.png");
+  background-image: url(../src/img/bg.png);
   min-height: 100%;
   position: relative;
   opacity: 0.65;
