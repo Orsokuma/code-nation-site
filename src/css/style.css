@@ -27,25 +27,25 @@ body {
   transition: background 0.5s linear;
 }
 .parallax-bg-1 {
-  background-image: url(../img/bg.png);
+  background-image: url(../img/backgrounds/bg.png);
 }
 .parallax-bg-2 {
-  background-image: url(../img/bg2.jpg);
+  background-image: url(../img/backgrounds/bg2.jpg);
 }
 .parallax-bg-3 {
-  background-image: url(../img/bg3.jpg);
+  background-image: url(../img/backgrounds/bg3.jpg);
 }
 .parallax-bg-4 {
-  background-image: url(../img/bg4.jpg);
+  background-image: url(../img/backgrounds/bg4.jpg);
 }
 .parallax-bg-5 {
-  background-image: url(../img/bg5.jpg);
+  background-image: url(../img/backgrounds/bg5.jpg);
 }
 .parallax-bg-6 {
-  background-image: url(../img/bg6.jpg);
+  background-image: url(../img/backgrounds/bg6.jpg);
 }
 .parallax-bg-7 {
-  background-image: url(../img/bg7.jpg);
+  background-image: url(../img/backgrounds/bg7.jpg);
 }
 @media only screen and (max-device-width: 1024px) {
   .parallax {
@@ -211,8 +211,7 @@ textarea {
   text-align: justify;
 }
 /* CONTACT US */
-div.contact-us,
-div.game {
+div.contact-us, div.game, div.products {
   position: relative;
 }
 div.contact-us > div.contact-us-content {
@@ -222,6 +221,7 @@ div.contact-us > div.contact-us-content {
   padding: 50px 80px;
   text-align: center;
 }
+/* CONTACT US */
 /* GAME */
 div.game {
   display: block;
@@ -235,6 +235,38 @@ iframe.game-frame {
   width: 750px;
 }
 /* GAME */
+/* PRODUCTS */
+.products {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+  background-color: #11111a;
+}
+.products h3 {
+  align-self: center;
+}
+.store-container {
+  display: flex;
+  justify-items: space-around;
+}
+.store-container > .store-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 10px 0;
+}
+.store-container > .store-item > .store-image {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 25px;
+}
+.store-container > .store-item > .store-item-description {
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+/* PRODUCTS */
 /* TOAST NOTIFICATIONS */
 #toast {
   visibility: hidden;
