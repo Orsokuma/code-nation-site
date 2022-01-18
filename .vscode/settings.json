@@ -1,0 +1,16 @@
+{
+  "filewatcher.commands": [
+    {
+      "match": "\\.js",
+      "isAsync": false,
+      "cmd": "uglifyjs ${file} -o ${fileDirname}/${fileBasenameNoExt}.min.js",
+      "event": "onFileChange"
+    },
+    {
+      "match": "\\.css",
+      "isAsync": false,
+      "cmd": "csso -i ${file} -o ${fileDirname}/${fileBasenameNoExt}.min.css",
+      "event": "onFileChange"
+    }
+  ]
+}
