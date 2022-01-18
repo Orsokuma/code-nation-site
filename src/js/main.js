@@ -152,4 +152,26 @@ let update_form_output = (name, email, message) => {
 };
 // CONTACT FORM OUTPUT
 
-// MINE SWEEPER
+// SCROLL DETECT, TRANSPARENT MENU
+let fade_running = false;
+$(window).on("scroll", () => {
+  let nav = $(".nav");
+  let current_opacity = nav.prop("style").opacity;
+  if (!fade_running) {
+    let scroll_point = 15;
+    if ($(window).scrollTop() <= scroll_point && current_opacity !== 1) {
+      console.log("Fading to full");
+      fade_running = true;
+      nav.fadeTo(".5s", 1, () => {
+        fade_running = false;
+      });
+    } else if ($(window).scrollTop() > scroll_point && current_opacity != 0.5) {
+      console.log("Fading to half");
+      fade_running = true;
+      nav.fadeTo(".5s", 0.5, () => {
+        fade_running = false;
+      });
+    }
+  }
+});
+// SCROLL DETECT, TRANSPARENT MENU

@@ -79,11 +79,55 @@ textarea {
 /* GLOBAL STYLES */
 
 /* MENU */
+@keyframes opacity-fade-in {
+  0% {
+    opacity: 0.5;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  40% {
+    opacity: 0.7;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes opacity-fade-out {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  60% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
 .nav {
   display: flex;
   height: auto;
   width: 100%;
   justify-content: space-around;
+  color: #dadada;
+  background-color: #1d184a;
+  opacity: 100%;
 }
 .nav a.nav-link {
   color: #fff;
@@ -112,8 +156,6 @@ textarea {
 .sticky-menu {
   position: fixed;
   z-index: 2;
-  color: #dadada;
-  background-color: #1d184a;
 }
 .sticky-menu li a {
   color: #fdfdfd;
