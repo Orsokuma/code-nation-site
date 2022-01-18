@@ -17,14 +17,15 @@ body {
   scroll-behavior: smooth;
 }
 .parallax {
+  background-color: #000;
   background-image: url(../img/bg.png);
   min-height: 100%;
   position: relative;
-  opacity: 0.65;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  transition: background 0.5s linear;
 }
 @media only screen and (max-device-width: 1024px) {
   .parallax {
@@ -38,6 +39,7 @@ body {
   width: 100%;
   text-align: center;
   color: #000;
+  opacity: initial !important;
 }
 .caption h1.border {
   background-color: #111;
@@ -47,6 +49,7 @@ body {
   letter-spacing: 10px;
   width: 50%;
   margin: 0 auto;
+  opacity: initial !important;
 }
 .caption h1:hover {
   background-color: #1f1f1f;
@@ -170,6 +173,10 @@ textarea {
 /* VALIDATIONS */
 
 /* ABOUT US */
+div.about-us, div.contact-us, div.game {
+  opacity: 0.6;
+}
+
 .about-us {
   color: #777;
   background-color: #080b21;

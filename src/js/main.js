@@ -173,3 +173,23 @@ $(window).on("scroll", () => {
   }
 });
 // SCROLL DETECT, TRANSPARENT MENU
+
+// BACKGROUND TRANSITIONS
+$(() => {
+  let bgElem = $(".parallax");
+  let images = ["src/img/bg.png", "src/img/bg2.jpg", "src/img/bg3.jpg"];
+  let i = 1;
+  let imageCount = images.length;
+  setInterval(() => {
+    let randomImage = images[i];
+    bgElem.fadeOut(500, () => {
+      bgElem.css("background-image", "url(" + randomImage + ")");
+      bgElem.fadeIn(500);
+    });
+    ++i;
+    if (i > imageCount - 1) {
+      i = 0;
+    }
+  }, 60000);
+});
+// BACKGROUND TRANSITIONS
