@@ -87,6 +87,12 @@ textarea {
   text-decoration: none;
   padding: 0 10px;
 }
+.nav a:hover {
+  color: #b9e7f5;
+}
+.nav a:active {
+  color: #97ddf2;
+}
 /* MENU */
 
 /* STICKY MENU */
@@ -167,16 +173,29 @@ textarea {
   text-align: justify;
 }
 /* CONTACT US */
-.contact-us {
+div.contact-us, div.game {
   position: relative;
 }
-.contact-us > .contact-us-content {
+div.contact-us > div.contact-us-content {
   color: #ddd;
   background-color: #282e34;
   text-align: center;
   padding: 50px 80px;
   text-align: center;
 }
+/* GAME */
+div.game {
+  display: block;
+  text-align: center;
+}
+iframe {
+  border: none;
+}
+iframe.game-frame {
+  height: 800px;
+  width: 750px;
+}
+/* GAME */
 /* TOAST NOTIFICATIONS */
 #toast {
   visibility: hidden;
@@ -312,3 +331,4 @@ textarea {
   }
 }
 /* TOAST NOTIFICATIONS */
+

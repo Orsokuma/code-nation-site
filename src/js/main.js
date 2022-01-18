@@ -151,3 +151,5 @@ let update_form_output = (name, email, message) => {
   output_row.hide().slideDown("medium");
 };
 // CONTACT FORM OUTPUT
+
+// MINE SWEEPER
