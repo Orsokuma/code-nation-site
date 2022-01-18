@@ -75,6 +75,20 @@ textarea {
 }
 /* GLOBAL STYLES */
 
+/* MENU */
+.nav {
+  display: flex;
+  height: auto;
+  width: 100%;
+  justify-content: space-around;
+}
+.nav a.nav-link {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 10px;
+}
+/* MENU */
+
 /* STICKY MENU */
 .sticky-menu {
   position: fixed;
