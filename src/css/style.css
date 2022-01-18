@@ -101,6 +101,7 @@ textarea {
 }
 .nav a#menu {
   color: #696969;
+  cursor: initial;
 }
 .nav a#menu:hover {
   background-color: initial;
