@@ -32,6 +32,12 @@ let is_email = (email) => {
   return regex.test(email);
 };
 
+let html_encode = (str) => {
+  return String(str).replace(/[^\w. ]/gi, (c) => {
+     return '&#'+c.charCodeAt(0)+';';
+  });
+}
+
 contact_form.on("submit", (obj) => {
   obj.preventDefault();
   let name = $("input#name").val();
@@ -139,9 +145,9 @@ let update_form_output = (name, email, message) => {
   let name_output = $("span#name-output");
   let email_output = $("span#email-output");
   let message_output = $("span#message-output");
-  name_output.html(name);
-  email_output.html(email);
-  message_output.html(message);
+  name_output.html(html_encode(name));
+  email_output.html(html_encode(email));
+  message_output.html(html_encode(message));
   output_row.hide().slideDown("medium");
 };
 // CONTACT FORM OUTPUT
