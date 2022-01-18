@@ -197,6 +197,6 @@ $(() => {
     if (i > bgCnt) {
       i = 1;
     }
-  }, 5000);
+  }, 30000);
 });
 // BACKGROUND TRANSITIONS
