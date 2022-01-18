@@ -6,7 +6,6 @@ var Menu = (function() {
     this.view = target
     this.game = game
     this.score = new Score()
-    this.score.initParse()
     if (type === this.MAIN_MENU)
       this.setListeners()
     else if (type === this.RANK_MENU)
@@ -61,21 +60,6 @@ var Menu = (function() {
       menu.game.menu.view.classList.remove('display-none') // main menu
       menu.view.classList.add('display-none') // this menu
       menu.score.isSetScore = false
-    })
-  }
-
-  Menu.prototype.showRank = function() {
-    this.score.getScoreParse(10, function(results) {
-      // Do something with the returned Parse.Object values
-      var views = document.querySelectorAll('.menu__panel--rank__element')
-      for (var i = 0; i < results.length; i++) {
-        if (!views[i])
-          continue
-        var object = results[i]
-        views[i].querySelector('.menu__panel--rank__element__name').textContent = object.get('name')
-        views[i].querySelector('.menu__panel--rank__element__score').textContent = object.get('score')
-        // alert(object.id + ' - ' + object.get('name'));
-      }
     })
   }
 
