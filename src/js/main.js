@@ -34,9 +34,9 @@ let is_email = (email) => {
 
 let html_encode = (str) => {
   return String(str).replace(/[^\w. ]/gi, (c) => {
-     return '&#'+c.charCodeAt(0)+';';
+    return "&#" + c.charCodeAt(0) + ";";
   });
-}
+};
 
 contact_form.on("submit", (obj) => {
   obj.preventDefault();
