@@ -166,7 +166,7 @@ $(window).on("scroll", () => {
       });
     } else if ($(window).scrollTop() > scroll_point && current_opacity != 0.5) {
       fade_running = true;
-      nav.fadeTo(".5s", 0.5, () => {
+      nav.fadeTo(".5s", 0.75, () => {
         fade_running = false;
       });
     }
@@ -177,7 +177,7 @@ $(window).on("scroll", () => {
 // BACKGROUND TRANSITIONS
 $(() => {
   let bgElem = $(".parallax");
-  let bgCnt = 3;
+  let bgCnt = 7;
   let i = 2;
   let bgStr = "parallax-bg-";
   setInterval(() => {
