@@ -177,19 +177,26 @@ $(window).on("scroll", () => {
 // BACKGROUND TRANSITIONS
 $(() => {
   let bgElem = $(".parallax");
-  let images = ["src/img/bg.png", "src/img/bg2.jpg", "src/img/bg3.jpg"];
-  let i = 1;
-  let imageCount = images.length;
+  let bgCnt = 3;
+  let i = 2;
+  let bgStr = "parallax-bg-";
   setInterval(() => {
-    let randomImage = images[i];
-    bgElem.fadeOut(500, () => {
-      bgElem.css("background-image", "url(" + randomImage + ")");
-      bgElem.fadeIn(500);
+    let unusedBgClasses = [];
+    for (let k = 1; k <= bgCnt; ++k) {
+      unusedBgClasses.push(bgStr + (k.toString()));
+    }
+    let bgClassName = bgStr + i;
+    unusedBgClasses = unusedBgClasses.filter((elem) => {
+      return elem != bgClassName;
+    });
+    bgElem.fadeTo(750, 0.05, () => {
+      bgElem.addClass(bgClassName).removeClass(unusedBgClasses.join(" "));
+      bgElem.fadeTo(750, 1);
     });
     ++i;
-    if (i > imageCount - 1) {
-      i = 0;
+    if (i > bgCnt) {
+      i = 1;
     }
-  }, 60000);
+  }, 5000);
 });
 // BACKGROUND TRANSITIONS
