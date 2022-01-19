@@ -320,6 +320,9 @@ iframe.game-frame {
   text-align: center;
   padding: 5px 10px;
 }
+.footer a {
+  color: #636363;
+}
 /* FOOTER */
 
 /* VALIDATIONS */
