@@ -208,6 +208,18 @@ $(() => {
 // BACKGROUND TRANSITIONS
 
 // DUMMY BASKET MANAGEMENT
+let formatCurrency = (amount) => {
+  let formatter = new Intl.NumberFormat("en-gb", {
+    style: "currency",
+    currency: "gbp",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+  return formatter.format(amount);
+  // amount = amount.toFixed(2);
+  // let parts = amount.split('.');
+  // return parseInt(parts[0]).toLocaleString() + '.' + parts[1];
+};
 let productList = [
   {
     id: 1,
@@ -258,6 +270,10 @@ let productList = [
     cost: 10.99,
   },
 ];
+let basket = {
+  total: 0.0,
+  items: [],
+};
 let populateProducts = () => {
   let storeContainer = $("div.store-container");
   if (storeContainer.length < 2) {
@@ -267,7 +283,7 @@ let populateProducts = () => {
     <div class="store-item"> \
         <div class="store-item-description"> \
           {name}<br> \
-          £{cost} \
+          {cost} \
         </div> \
         <div class="store-controls"> \
           <a href="javascript:void(0);" data-product-id="{id}" data-basket-action="remove" class="btn btn-danger change-basket"> \
@@ -286,7 +302,7 @@ let populateProducts = () => {
         markup
           .replace(/\{id\}/gm, entry.id)
           .replace("{name}", entry.name)
-          .replace("{cost}", entry.cost.toFixed(2))
+          .replace("{cost}", formatCurrency(entry.cost))
           .replace("{image}", entry.image)
       );
     }
@@ -295,10 +311,46 @@ let populateProducts = () => {
 };
 let updateBasketTotalCost = (cost) => {
   let basketSubtotal = $("span#basket-subtotal");
-  let currentTotal = parseFloat(basketSubtotal.html());
-  let subTotal = currentTotal + cost;
-  basketSubtotal.text((subTotal.toFixed(2)).toLocaleString());
+  basket["total"] += cost;
+  basketSubtotal.text(formatCurrency(basket["total"]));
 };
+let updateBasketItems = (product, action) => {
+  let item = basket.items.find(x => x.id === product.id);
+  if (action === "add") {
+    if (item === undefined) {
+      basket.items.push({ id: product.id, name: product.name, qty: 1 });
+    } else {
+      basket.items.find(x => x.id == product.id).qty++;
+    }
+  } else if (action === 'remove') {
+    if (item !== undefined) {
+      basket.items.find(x => x.id === product.id)['qty']--;
+      if (item.qty <= 0) {
+        basket.items = basket.items.filter(x => x.id !== product.id);
+      }
+    }
+  }
+  redrawBasket();
+};
+let redrawBasket = () => {
+  let markup = ' \
+    <div class="basket-row" id="basket-item-{id}"> \
+      <span class="basket-item-name">{name}</span> \
+      <span class="basket-item-qty">{qty}</span> \
+    </div> \
+  ';
+  let fullBasketMarkup = '';
+  if (basket.items.length > 0) {
+    let i;
+    for (i of basket.items) {
+      fullBasketMarkup += markup
+        .replace('{id}', i.id)
+        .replace('{name}', i.name)
+        .replace('{qty}', i.qty);
+    }
+  }
+  $('div#basket-items').html(fullBasketMarkup);
+}
 let reinitializeBasket = () => {
   $(".change-basket").on("click", (obj) => {
     let data = obj.currentTarget.dataset;
@@ -319,7 +371,7 @@ let reinitializeBasket = () => {
       }
     }
     if (updateItems) {
-      // updateBasketItems(product, data.basketAction);
+      updateBasketItems(product, data.basketAction);
     }
   });
 };

@@ -194,7 +194,38 @@ iframe.game-frame {
 }
 .products > .basket {
   padding: 0 3rem;
+  width: 80%;
+  margin: 0 auto;
 }
+.products > .basket > .basket-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+.products > .basket > .basket-items > .basket-row {
+  display: flex;
+  padding: 0 10px;
+  width: 30%;
+}
+.basket-row > .basket-item-name {
+  width: 80%;
+  float: left;
+  font-weight: 500;
+}
+.basket-row > .basket-item-qty {
+  width: 20%;
+  float: right;
+  color: #f4fd6c;
+}
+.basket-row > .basket-item-qty::before {
+  content: "x ";
+  text-transform: lowercase;
+}
+.basket > .basket-cost {
+  display: inline-flex;
+  float: right;
+  text-align: right;
+}
+
 /* PRODUCTS */
 
 /* BUTTONS */
