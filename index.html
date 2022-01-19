@@ -5,38 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="src/css/pure-css.min.css" />
-    <link rel="stylesheet" type="text/css" href="src/css/pure-css-grids.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="src/css/pure-css-grids.min.css"
+    />
     <link rel="stylesheet" type="text/css" href="src/css/style.min.css" />
     <script src="src/js/jquery-3.6.0.min.js"></script>
-    <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
-      integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
-      crossorigin="anonymous"
-    ></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
     <title>KumaStore</title>
   </head>
 
   <body>
     <div class="nav sticky-menu">
-      <a href="javascript:void(0);" id="menu" class="nav-link">
-        Kuma Store
-      </a>
-      <a href="#welcome" class="nav-link" id="welcome-link">
-        Welcome
-      </a>
-      <a href="#about-us" class="nav-link" id="about-us-link">
-        About Us
-      </a>
+      <a href="javascript:void(0);" id="menu" class="nav-link"> Kuma Store </a>
+      <a href="#welcome" class="nav-link" id="welcome-link"> Welcome </a>
+      <a href="#about-us" class="nav-link" id="about-us-link"> About Us </a>
       <a href="#contact-us" class="nav-link" id="contact-us-link">
         Contact Us
       </a>
-      <a href="#products" class="nav-link" id="products-link">
-        Store
-      </a>
-      <a href="#game" class="nav-link" id="game-link">
-        Game
-      </a>
+      <a href="#products" class="nav-link" id="products-link"> Store </a>
+      <a href="#game" class="nav-link" id="game-link"> Game </a>
     </div>
     <div class="parallax parallax-bg-1" id="welcome">
       <div class="caption">
@@ -62,83 +51,52 @@
     <div class="contact-us" id="contact-us">
       <div class="contact-us-content">
         <h3 class="text-center">Contact Us</h3>
-        <form
-          action="/"
-          method="post"
-          id="contact-form"
-          class="pure-form pure-form-aligned needs-validation"
-        >
+        <form action="/" method="post" id="contact-form" class="pure-form pure-form-aligned needs-validation">
           <div class="pure-control-group">
             <label for="name">Name</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              value=""
-              class="pure-u-1 pure-u-sm-1-2"
-            />
-            <span class="hide valid-input" id="name-valid"
-              ><span class="fas fa-check"></span
-            ></span>
-            <span class="hide invalid-input" id="name-invalid"
-              ><span class="fas fa-times"></span
-            ></span>
+            <input type="text" name="name" id="name" value="" class="pure-u-1 pure-u-sm-1-2" />
+            <span class="hide valid-input" id="name-valid">
+              <span class="fas fa-check"></span>
+            </span>
+            <span class="hide invalid-input" id="name-invalid">
+              <span class="fas fa-times"></span>
+            </span>
           </div>
           <div class="pure-control-group">
             <label for="email">Email Address</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value=""
-              class="pure-u-1 pure-u-sm-1-2"
-            />
-            <span class="hide valid-input" id="email-valid"
-              ><span class="fas fa-check"></span
-            ></span>
-            <span class="hide invalid-input" id="email-invalid"
-              ><span class="fas fa-times"></span
-            ></span>
+            <input type="email" name="email" id="email" value="" class="pure-u-1 pure-u-sm-1-2" />
+            <span class="hide valid-input" id="email-valid">
+              <span class="fas fa-check"></span>
+            </span>
+            <span class="hide invalid-input" id="email-invalid">
+              <span class="fas fa-times"></span>
+            </span>
           </div>
           <div class="pure-control-group">
             <label for="message">Message</label>
-            <textarea
-              name="message"
-              id="message"
-              value=""
-              class="pure-u-1 pure-u-sm-1-2"
-            ></textarea>
-            <span class="hide valid-input" id="message-valid"
-              ><span class="fas fa-check"></span
-            ></span>
-            <span class="hide invalid-input" id="message-invalid"
-              ><span class="fas fa-times"></span
-            ></span>
+            <textarea name="message" id="message" value="" class="pure-u-1 pure-u-sm-1-2"></textarea>
+            <span class="hide valid-input" id="message-valid">
+              <span class="fas fa-check"></span>
+            </span>
+            <span class="hide invalid-input" id="message-invalid">
+              <span class="fas fa-times"></span>
+            </span>
           </div>
           <div class="pure-controls">
             <label for="confirmation" class="pure-checkbox">
-              <input
-                type="checkbox"
-                id="confirmation"
-                name="confirmation"
-                value="1"
-              />
+              <input type="checkbox" id="confirmation" name="confirmation" value="1" />
               I confirm I've said everything I need to say in a clear and
               concise manner
-              <span class="hide valid-input" id="confirmation-valid"
-                ><span class="fas fa-check"></span
-              ></span>
-              <span class="hide invalid-input" id="confirmation-invalid"
-                ><span class="fas fa-times"></span
-              ></span>
+              <span class="hide valid-input" id="confirmation-valid">
+                <span class="fas fa-check"></span>
+              </span>
+              <span class="hide invalid-input" id="confirmation-invalid">
+                <span class="fas fa-times"></span>
+              </span>
             </label>
           </div>
           <div class="form-controls">
-            <button
-              type="submit"
-              name="submit"
-              class="pure-button pure-button-primary"
-            >
+            <button type="submit" name="submit" class="pure-button pure-button-primary">
               <span class="fas fa-envelope"></span>
               Send Message
             </button>
@@ -147,34 +105,24 @@
       </div>
     </div>
     <div class="form-response-row d-block" id="form-response">
-      Name: <span id="name-output"><span class="fas fa-spinner"></span></span
-      ><br />
-      Email: <span id="email-output"><span class="fas fa-spinner"></span></span
-      ><br />
+      Name: <span id="name-output">
+        <span class="fas fa-spinner"></span>
+      </span><br />
+      Email: <span id="email-output">
+        <span class="fas fa-spinner"></span>
+      </span><br />
       Message:
-      <span id="message-output"><span class="fas fa-spinner"></span></span>
+      <span id="message-output">
+        <span class="fas fa-spinner"></span>
+      </span>
     </div>
     <div class="products" id="products">
       <h3 class="text-center">Store</h3>
-      <div class="store-container">
-        <div class="store-item">
-          <div class="store-item-description">
-            Twisty Bear
-          </div>
-          <img src="src/img/store/bear-1.png" alt="[store item]" class="store-image"><br>
-        </div>
-        <div class="store-item">
-          <div class="store-item-description">
-            Stuffed Bear
-          </div>
-          <img src="src/img/store/bear-2.png" alt="[store item]" class="store-image"><br>
-        </div>
-        <div class="store-item">
-          <div class="store-item-description">
-            Robo Not-Bear
-          </div>
-          <img src="src/img/store/bear-3.png" alt="[store item]" class="store-image"><br>
-        </div>
+      <div class="store-container"></div>
+      <div class="basket">
+        <span class="float-end">
+        Total: £<span id="basket-subtotal">0.00</span>
+        </span>
       </div>
     </div>
     <div class="game" id="game">
@@ -189,15 +137,15 @@
     </footer>
     <div id="toast">
       <div id="toast-img">
-        <img
-          src="src/img/info.png"
-          alt="Info"
-          class="toast-icon"
-          id="toast-icon"
-        />
+        <img src="src/img/info.png" alt="Info" class="toast-icon" id="toast-icon" />
       </div>
       <div id="toast-desc"></div>
     </div>
-    <script src="src/js/main.min.js"></script>
+    <script src="src/js/main.js"></script>
+    <script>
+    $(() => {
+      populateProducts();
+    })
+    </script>
   </body>
 </html>

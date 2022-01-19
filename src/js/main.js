@@ -24,19 +24,25 @@ let launch_toast = (data) => {
 };
 // TOAST NOTIFICATIONS
 
-// CONTACT FORM
-let contact_form = $("form#contact-form");
-
-let is_email = (email) => {
+// HELPER FUNCS
+let toInt = (num) => {
+  let parsed = parseInt(num);
+  return !isNaN(parsed) ? parsed : 0;
+};
+let isEmail = (email) => {
   let regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   return regex.test(email);
 };
 
-let html_encode = (str) => {
+let htmlEncode = (str) => {
   return String(str).replace(/[^\w. ]/gi, (c) => {
     return "&#" + c.charCodeAt(0) + ";";
   });
 };
+// HELPER FUNCS
+
+// CONTACT FORM
+let contact_form = $("form#contact-form");
 
 contact_form.on("submit", (obj) => {
   obj.preventDefault();
@@ -75,7 +81,7 @@ contact_form.on("submit", (obj) => {
     name_valid.removeClass("hide");
     name_invalid.addClass("hide");
   }
-  if (!email || !is_email(email)) {
+  if (!email || !isEmail(email)) {
     email_invalid.removeClass("hide");
     email_valid.addClass("hide");
     error_values.push("email");
@@ -145,9 +151,9 @@ let update_form_output = (name, email, message) => {
   let name_output = $("span#name-output");
   let email_output = $("span#email-output");
   let message_output = $("span#message-output");
-  name_output.html(html_encode(name));
-  email_output.html(html_encode(email));
-  message_output.html(html_encode(message));
+  name_output.html(htmlEncode(name));
+  email_output.html(htmlEncode(email));
+  message_output.html(htmlEncode(message));
   output_row.hide().slideDown("medium");
 };
 // CONTACT FORM OUTPUT
@@ -183,7 +189,7 @@ $(() => {
   setInterval(() => {
     let unusedBgClasses = [];
     for (let k = 1; k <= bgCnt; ++k) {
-      unusedBgClasses.push(bgStr + (k.toString()));
+      unusedBgClasses.push(bgStr + k.toString());
     }
     let bgClassName = bgStr + i;
     unusedBgClasses = unusedBgClasses.filter((elem) => {
@@ -200,3 +206,121 @@ $(() => {
   }, 5000);
 });
 // BACKGROUND TRANSITIONS
+
+// DUMMY BASKET MANAGEMENT
+let productList = [
+  {
+    id: 1,
+    name: "Twisty Bear",
+    image: "src/img/store/bear-1.png",
+    cost: 19.99,
+  },
+  {
+    id: 2,
+    name: "Stuffed Bear",
+    image: "src/img/store/bear-2.png",
+    cost: 4.99,
+  },
+  {
+    id: 3,
+    name: "Robo Not-Bear",
+    image: "src/img/store/bear-3.png",
+    cost: 49.99,
+  },
+  {
+    id: 4,
+    name: "Robo Plush",
+    image: "src/img/store/bear-4.png",
+    cost: 3.99,
+  },
+  {
+    id: 5,
+    name: "Shiba Chonk",
+    image: "src/img/store/bear-5.jpg",
+    cost: 7.99,
+  },
+  {
+    id: 6,
+    name: "Lion Cub",
+    image: "src/img/store/bear-6.png",
+    cost: 5.49,
+  },
+  {
+    id: 7,
+    name: "10-Foot Bear",
+    image: "src/img/store/bear-7.png",
+    cost: 543.21,
+  },
+  {
+    id: 8,
+    name: "FNAF-alike",
+    image: "src/img/store/bear-8.png",
+    cost: 10.99,
+  },
+];
+let populateProducts = () => {
+  let storeContainer = $("div.store-container");
+  if (storeContainer.length < 2) {
+    let entry;
+    let markup =
+      ' \
+    <div class="store-item"> \
+        <div class="store-item-description"> \
+          {name}<br> \
+          £{cost} \
+        </div> \
+        <div class="store-controls"> \
+          <a href="javascript:void(0);" data-product-id="{id}" data-basket-action="remove" class="btn btn-danger change-basket"> \
+            <span class="fas fa-minus"></span> \
+          </a> \
+          <span id="product-basket-{id}">0</span> \
+          <a href="javascript:void(0);" data-product-id="{id}" data-basket-action="add" class="btn btn-success change-basket"> \
+            <span class="fas fa-plus"></span> \
+          </a> \
+        </div> \
+        <img src="{image}" alt="[store item]" class="store-image"><br> \
+      </div> \
+    ';
+    for (entry of productList) {
+      storeContainer.append(
+        markup
+          .replace(/\{id\}/gm, entry.id)
+          .replace("{name}", entry.name)
+          .replace("{cost}", entry.cost.toFixed(2))
+          .replace("{image}", entry.image)
+      );
+    }
+    reinitializeBasket();
+  }
+};
+let updateBasketTotalCost = (cost) => {
+  let basketSubtotal = $("span#basket-subtotal");
+  let currentTotal = parseFloat(basketSubtotal.html());
+  let subTotal = currentTotal + cost;
+  basketSubtotal.text((subTotal.toFixed(2)).toLocaleString());
+};
+let reinitializeBasket = () => {
+  $(".change-basket").on("click", (obj) => {
+    let data = obj.currentTarget.dataset;
+    let id = data.productId;
+    let amntVal = toInt($("span#product-basket-" + id).html());
+    let product = productList.find((x) => x.id === toInt(id));
+    let updateItems = false;
+    if (data.basketAction === "add") {
+      $("span#product-basket-" + id).text(amntVal + 1);
+      updateBasketTotalCost(product.cost);
+      updateItems = true;
+    } else if (data.basketAction === "remove") {
+      let amntVal = toInt($("span#product-basket-" + id).html());
+      if (amntVal > 0) {
+        $("span#product-basket-" + id).text(amntVal - 1);
+        updateBasketTotalCost(-product.cost);
+        updateItems = true;
+      }
+    }
+    if (updateItems) {
+      // updateBasketItems(product, data.basketAction);
+    }
+  });
+};
+// DUMMY BASKET MANAGEMENT
