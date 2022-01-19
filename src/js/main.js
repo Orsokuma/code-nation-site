@@ -269,7 +269,25 @@ let productList = [
     image: "src/img/store/bear-8.png",
     cost: 10.99,
   },
-];
+  {
+    id: 9,
+    name: "Y00NCRN",
+    image: "src/img/store/unicorn.jpg",
+    cost: 1.99,
+  },
+  {
+    id: 10,
+    name: "Left-handed Screwdriver",
+    image: "src/img/store/left-handed-screwdriver.jpg",
+    cost: 0.49,
+  },
+  {
+    id: 11,
+    name: "Tartan Paint",
+    image: "src/img/store/tartan-paint.jpg",
+    cost: 5.49,
+  },
+];;
 let basket = {
   total: 0.0,
   items: [],

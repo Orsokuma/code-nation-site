@@ -11,7 +11,7 @@ html,
 body {
   height: 100%;
   margin: 0;
-  font: 400 20px/2 bearskin, "Lato", sans-serif;
+  font: 400 22px/2 bearskin, "Lato", sans-serif;
   color: #d6d6d6;
   background-color: #131313;
   scroll-behavior: smooth;
@@ -172,7 +172,7 @@ iframe.game-frame {
 .store-container > .store-item {
   display: flex;
   flex-direction: column;
-  width: 150px;
+  width: 175px;
   padding: 20px;
   margin: 10px 0;
   text-align: center;
@@ -200,6 +200,7 @@ iframe.game-frame {
 .products > .basket > .basket-items {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 .products > .basket > .basket-items > .basket-row {
   display: flex;
@@ -225,6 +226,7 @@ iframe.game-frame {
   float: right;
   text-align: right;
   color: #ccf2fd;
+  font-size: 1.4em;
 }
 
 /* PRODUCTS */
