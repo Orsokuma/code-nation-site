@@ -224,6 +224,7 @@ iframe.game-frame {
   display: inline-flex;
   float: right;
   text-align: right;
+  color: #ccf2fd;
 }
 
 /* PRODUCTS */
